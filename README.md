@@ -1,12 +1,4 @@
-/* 🚀 CHATGPT CLONE – FULL PRODUCTION‑LIKE DEMO
 
-EKLENENLER (TÜMÜ):
-1️⃣ Gerçek OpenAI uyumlu API desteği (ENV ile)
-2️⃣ Sohbet geçmişine TAM bağlamlı hafıza (tüm mesajlar AI’ye gider)
-3️⃣ Otomatik sohbet başlığı (ilk soruya göre)
-4️⃣ Sohbet geçmişi sol panel + arama
-5️⃣ Mobil uyumlu ChatGPT birebir arayüz (baloncuk + typing animasyonu)
-*/
 
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
@@ -114,17 +106,16 @@ export default function App() {
     );
   }
 
-  /* ➕ YENİ SOHBET */
+ 
   const newChat = () => {
     const id = Date.now().toString();
     setChats({ ...chats, [id]: { owner: user, title: "Yeni Sohbet", messages: [] } });
     setCurrentChatId(id);
   };
 
-  /* 🤖 AI SOR */
-  const ask = async () => {
-    // 🔁 TÜM sohbeti bağlam olarak gönder (FULL MEMORY)
 
+  const ask = async () => {
+    
     if (!question || !currentChatId) return;
 
     const updated = [...chats[currentChatId].messages, { role: "user", text: question }];
